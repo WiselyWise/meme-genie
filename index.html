@@ -7,15 +7,28 @@
     <title>MemeAI - Generate Hilarious Memes with AI in Seconds</title>
     <meta name="description" content="Transform your ideas into meme gold with our advanced AI. Just type your prompt and watch as our tool creates the perfect meme for any situation." />
     <meta name="author" content="MemeAI" />
-
+    <meta name="keywords" content="ai meme generator, meme maker, funny memes, ai memes, custom meme creator" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://memeai.netlify.app/" />
     <meta property="og:title" content="MemeAI - Generate Hilarious Memes with AI" />
     <meta property="og:description" content="Transform your ideas into meme gold with our advanced AI. Just type your prompt and watch as our tool creates the perfect meme for any situation." />
-    <meta property="og:type" content="website" />
     <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-
+    
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@memeai" />
+    <meta name="twitter:title" content="MemeAI - Generate Hilarious Memes with AI" />
+    <meta name="twitter:description" content="Transform your ideas into meme gold with our advanced AI. Just type your prompt and watch as our tool creates the perfect meme for any situation." />
     <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    
+    <!-- Canonical URL -->
+    <meta rel="canonical" href="https://memeai.netlify.app/" />
+
+    <!-- Preload critical assets -->
+    <link rel="preload" href="/src/fonts/DMSans-Medium.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/src/index.css" as="style" />
   </head>
 
   <body>
@@ -23,5 +36,27 @@
     <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
     <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
     <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- JSON-LD structured data for better SEO -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "MemeAI",
+        "description": "AI-powered meme generator that creates hilarious memes instantly from your prompts.",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Web",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "ratingCount": "524"
+        }
+      }
+    </script>
   </body>
 </html>

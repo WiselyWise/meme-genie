@@ -1,14 +1,25 @@
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://memeai.netlify.app/sitemap.xml
+
+# Disallow admin paths
+Disallow: /admin/
+Disallow: /api/
+
+# Crawling directives
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Twitterbot
 Allow: /
 
 User-agent: facebookexternalhit
-Allow: /
-
-User-agent: *
 Allow: /
