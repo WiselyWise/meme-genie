@@ -52,6 +52,7 @@ const Testimonials = () => {
           <Carousel
             opts={{ loop: true }}
             className="w-full"
+            aria-label="User testimonials carousel"
           >
             <CarouselContent className="-ml-2 md:-ml-4">
               {testimonials.map((testimonial, index) => (
@@ -65,12 +66,12 @@ const Testimonials = () => {
                         <div className="w-10 h-10 rounded-full overflow-hidden">
                           <img 
                             src={testimonial.avatar} 
-                            alt={testimonial.name} 
+                            alt={`${testimonial.name}, ${testimonial.role}`}
                             className="w-full h-full object-cover"
                           />
                         </div>
                         <div>
-                          <h4 className="text-sm font-medium">{testimonial.name}</h4>
+                          <h3 className="text-sm font-medium">{testimonial.name}</h3>
                           <p className="text-xs text-white/60">{testimonial.role}</p>
                         </div>
                       </div>
@@ -80,8 +81,8 @@ const Testimonials = () => {
               ))}
             </CarouselContent>
             <div className="hidden md:block">
-              <CarouselPrevious className="bg-white/5 border-white/10 text-white hover:bg-white/10" />
-              <CarouselNext className="bg-white/5 border-white/10 text-white hover:bg-white/10" />
+              <CarouselPrevious className="bg-white/5 border-white/10 text-white hover:bg-white/10" aria-label="Previous testimonial" />
+              <CarouselNext className="bg-white/5 border-white/10 text-white hover:bg-white/10" aria-label="Next testimonial" />
             </div>
           </Carousel>
         </div>

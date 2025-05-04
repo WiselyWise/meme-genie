@@ -52,11 +52,11 @@ const FAQ = () => {
           </p>
         </div>
 
-        <Accordion type="single" collapsible className="animate-in stagger-2">
+        <Accordion type="single" collapsible className="animate-in stagger-2" aria-label="Frequently Asked Questions">
           {faqs.map((faq, index) => (
             <AccordionItem key={index} value={`item-${index}`} className="glass border border-white/10 mb-4 rounded-xl overflow-hidden">
               <AccordionTrigger className="px-6 py-4 hover:bg-white/5 text-left">
-                {faq.question}
+                <h3 className="text-base font-medium">{faq.question}</h3>
               </AccordionTrigger>
               <AccordionContent className="px-6 pb-4 pt-2 text-white/70">
                 {faq.answer}
@@ -67,8 +67,8 @@ const FAQ = () => {
 
         <div className="mt-12 text-center animate-in stagger-3">
           <p className="text-white/70 mb-4">Still have questions?</p>
-          <a href="#" className="text-purple-400 hover:text-purple-300 inline-flex items-center">
-            Contact our support team <span className="ml-1">→</span>
+          <a href="#contact" className="text-purple-400 hover:text-purple-300 inline-flex items-center">
+            Contact our support team <span className="ml-1" aria-hidden="true">→</span>
           </a>
         </div>
       </div>

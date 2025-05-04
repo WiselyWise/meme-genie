@@ -46,21 +46,28 @@ const Index = () => {
       <Helmet>
         <title>MemeAI - Generate Hilarious Memes with AI in Seconds</title>
         <meta name="description" content="Transform your ideas into meme gold with our advanced AI meme generator. Create viral-worthy content in seconds." />
-        <meta name="keywords" content="ai meme generator, meme creator, funny memes, meme maker, viral content" />
+        <meta name="keywords" content="ai meme generator, meme creator, funny memes, meme maker, viral content, ai-generated memes" />
         <meta property="og:title" content="MemeAI - Generate Hilarious Memes with AI" />
         <meta property="og:description" content="Transform your ideas into meme gold with our advanced AI meme generator." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://memeai.netlify.app/" />
+        <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="MemeAI - Generate Hilarious Memes with AI" />
+        <meta name="twitter:description" content="Create viral-worthy memes in seconds with our AI-powered meme generator." />
+        <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
         <link rel="canonical" href="https://memeai.netlify.app/" />
       </Helmet>
       
       <div className="min-h-screen bg-dark-500">
         <Header />
-        <Hero />
-        <Features />
-        <DemoSection />
-        <Testimonials />
-        <FAQ />
+        <main>
+          <Hero />
+          <Features />
+          <DemoSection />
+          <Testimonials />
+          <FAQ />
+        </main>
         <Footer />
       </div>
     </>

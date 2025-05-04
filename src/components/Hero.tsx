@@ -16,7 +16,7 @@ const Hero = () => {
       <div className="container relative z-10">
         <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
           <div className="inline-flex items-center px-3 py-1 mb-6 text-sm rounded-full glass animate-in">
-            <Sparkles className="w-4 h-4 mr-2 text-purple-400" />
+            <Sparkles className="w-4 h-4 mr-2 text-purple-400" aria-hidden="true" />
             <span>AI-Powered Meme Generator</span>
           </div>
 
@@ -61,8 +61,9 @@ const Hero = () => {
                 </div>
                 <img 
                   src="https://images.unsplash.com/photo-1586953208448-b95a79798f07?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3" 
-                  alt="Meme Generator Preview"
+                  alt="MemeAI Generator interface showing a meme creation dashboard"
                   className="object-cover w-full h-full rounded-xl"
+                  loading="eager"
                 />
                 <div className="absolute bottom-4 left-4 right-4 glass py-3 px-4 rounded-xl flex items-center">
                   <input 
@@ -70,6 +71,7 @@ const Hero = () => {
                     placeholder="Type your meme idea here..."
                     className="bg-transparent border-none outline-none flex-1 text-sm"
                     readOnly
+                    aria-label="Meme idea input field"
                   />
                   <Button size="sm" className="ml-2 bg-purple-500 hover:bg-purple-600">Generate</Button>
                 </div>

@@ -12,37 +12,37 @@ import { Card, CardContent } from "@/components/ui/card";
 const Features = () => {
   const features = [
     {
-      icon: <Zap className="h-6 w-6 text-purple-400" />,
+      icon: <Zap className="h-6 w-6 text-purple-400" aria-hidden="true" />,
       title: "Lightning Fast",
       description:
         "Generate custom memes in seconds, not minutes. Our AI works at the speed of your creativity.",
     },
     {
-      icon: <Layers className="h-6 w-6 text-teal-400" />,
+      icon: <Layers className="h-6 w-6 text-teal-400" aria-hidden="true" />,
       title: "Extensive Templates",
       description:
         "Access thousands of classic and trending meme templates all in one place.",
     },
     {
-      icon: <PaintBucket className="h-6 w-6 text-coral-400" />,
+      icon: <PaintBucket className="h-6 w-6 text-coral-400" aria-hidden="true" />,
       title: "Style Customization",
       description:
         "Adjust fonts, colors, and layouts to make your memes truly unique and personal.",
     },
     {
-      icon: <Share2 className="h-6 w-6 text-purple-400" />,
+      icon: <Share2 className="h-6 w-6 text-purple-400" aria-hidden="true" />,
       title: "Easy Sharing",
       description:
         "Share your creations directly to social media or download in multiple formats.",
     },
     {
-      icon: <Download className="h-6 w-6 text-teal-400" />,
+      icon: <Download className="h-6 w-6 text-teal-400" aria-hidden="true" />,
       title: "Batch Creation",
       description:
         "Generate multiple memes at once for social media campaigns or content calendars.",
     },
     {
-      icon: <Lock className="h-6 w-6 text-coral-400" />,
+      icon: <Lock className="h-6 w-6 text-coral-400" aria-hidden="true" />,
       title: "Private & Secure",
       description:
         "Your creations and prompts are never stored or shared without your permission.",

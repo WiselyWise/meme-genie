@@ -7,7 +7,7 @@
     <title>MemeAI - Generate Hilarious Memes with AI in Seconds</title>
     <meta name="description" content="Transform your ideas into meme gold with our advanced AI. Just type your prompt and watch as our tool creates the perfect meme for any situation." />
     <meta name="author" content="MemeAI" />
-    <meta name="keywords" content="ai meme generator, meme maker, funny memes, ai memes, custom meme creator" />
+    <meta name="keywords" content="ai meme generator, meme maker, funny memes, ai memes, custom meme creator, viral content creator, meme templates" />
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -29,6 +29,14 @@
     <!-- Preload critical assets -->
     <link rel="preload" href="/src/fonts/DMSans-Medium.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/src/index.css" as="style" />
+    
+    <!-- Additional SEO meta tags -->
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="rating" content="general" />
+    <meta name="revisit-after" content="7 days" />
+    <meta name="language" content="English" />
+    <meta name="geo.region" content="US" />
   </head>
 
   <body>
@@ -46,6 +54,8 @@
         "description": "AI-powered meme generator that creates hilarious memes instantly from your prompts.",
         "applicationCategory": "UtilityApplication",
         "operatingSystem": "Web",
+        "url": "https://memeai.netlify.app/",
+        "image": "https://lovable.dev/opengraph-image-p98pqg.png",
         "offers": {
           "@type": "Offer",
           "price": "0",
@@ -54,8 +64,75 @@
         "aggregateRating": {
           "@type": "AggregateRating",
           "ratingValue": "4.8",
-          "ratingCount": "524"
+          "ratingCount": "524",
+          "bestRating": "5",
+          "worstRating": "1"
+        },
+        "creator": {
+          "@type": "Organization",
+          "name": "MemeAI",
+          "url": "https://memeai.netlify.app/"
+        },
+        "keywords": "ai meme generator, meme maker, funny memes, ai memes, custom meme creator, viral content creator",
+        "sameAs": [
+          "https://twitter.com/memeai",
+          "https://instagram.com/memeai_app",
+          "https://facebook.com/memeaiapp"
+        ],
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://memeai.netlify.app/"
         }
+      }
+    </script>
+
+    <!-- FAQ Schema for Rich Results -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How does the AI meme generator work?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Our AI analyzes your text prompt to understand the humor and context. It then searches through thousands of templates to find the perfect match, applies your text with optimal placement, and generates a ready-to-share meme in seconds."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I customize the memes after they're generated?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! Once your meme is generated, you can adjust text placement, font styles, colors, and even swap out the template if you'd like. Our editor gives you full creative control."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How many memes can I create?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Our free plan allows you to create up to 10 memes per day. Premium subscribers get unlimited meme generation along with access to exclusive templates and features."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I use these memes commercially?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, all memes created with our tool can be used for commercial purposes. However, please note that some meme templates may contain third-party content that has its own usage rights."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you store the memes I create?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We only store memes temporarily for sharing purposes. After 30 days, or immediately after you download them, they are removed from our servers. Your data privacy is important to us."
+            }
+          }
+        ]
       }
     </script>
   </body>
