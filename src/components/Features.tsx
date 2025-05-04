@@ -57,7 +57,7 @@ const Features = () => {
             Everything You Need for <span className="text-gradient">Epic Memes</span>
           </h2>
           <p className="text-lg text-white/70 max-w-2xl mx-auto animate-in stagger-1">
-            Our AI-powered platform gives you all the tools to create viral-worthy content in seconds
+            <strong>Our AI-powered platform</strong> gives you all the tools to create viral-worthy content in seconds
           </p>
         </div>
 

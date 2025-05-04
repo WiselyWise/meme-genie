@@ -41,14 +41,14 @@ const FAQ = () => {
   ];
 
   return (
-    <section id="faq" className="py-24 bg-dark-600">
+    <section id="faq" className="py-24 bg-dark-600" aria-labelledby="faq-heading">
       <div className="container max-w-3xl">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-medium mb-6 animate-in">
+          <h2 id="faq-heading" className="text-3xl md:text-4xl font-medium mb-6 animate-in">
             Frequently Asked <span className="text-gradient">Questions</span>
           </h2>
           <p className="text-lg text-white/70 max-w-2xl mx-auto animate-in stagger-1">
-            Everything you need to know about our meme generator
+            <strong>Everything you need to know</strong> about our meme generator
           </p>
         </div>
 
@@ -59,7 +59,7 @@ const FAQ = () => {
                 <h3 className="text-base font-medium">{faq.question}</h3>
               </AccordionTrigger>
               <AccordionContent className="px-6 pb-4 pt-2 text-white/70">
-                {faq.answer}
+                <p><strong>{faq.question.split(' ')[0]}</strong> {faq.answer}</p>
               </AccordionContent>
             </AccordionItem>
           ))}

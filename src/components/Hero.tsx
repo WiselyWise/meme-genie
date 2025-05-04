@@ -7,11 +7,11 @@ const Hero = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <section className="relative min-h-screen pt-32 pb-20 overflow-hidden bg-mesh">
+    <section className="relative min-h-screen pt-32 pb-20 overflow-hidden bg-mesh" aria-labelledby="hero-heading">
       {/* Animated Blobs */}
-      <div className="absolute top-1/3 right-1/4 w-72 h-72 bg-purple-500/20 rounded-full filter blur-3xl opacity-70 animate-blob"></div>
-      <div className="absolute bottom-1/3 left-1/4 w-72 h-72 bg-teal-500/20 rounded-full filter blur-3xl opacity-70 animate-blob animation-delay-2000"></div>
-      <div className="absolute bottom-1/4 right-1/3 w-72 h-72 bg-coral-500/20 rounded-full filter blur-3xl opacity-70 animate-blob animation-delay-4000"></div>
+      <div className="absolute top-1/3 right-1/4 w-72 h-72 bg-purple-500/20 rounded-full filter blur-3xl opacity-70 animate-blob" aria-hidden="true"></div>
+      <div className="absolute bottom-1/3 left-1/4 w-72 h-72 bg-teal-500/20 rounded-full filter blur-3xl opacity-70 animate-blob animation-delay-2000" aria-hidden="true"></div>
+      <div className="absolute bottom-1/4 right-1/3 w-72 h-72 bg-coral-500/20 rounded-full filter blur-3xl opacity-70 animate-blob animation-delay-4000" aria-hidden="true"></div>
 
       <div className="container relative z-10">
         <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
@@ -20,12 +20,12 @@ const Hero = () => {
             <span>AI-Powered Meme Generator</span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl md:text-7xl font-medium mb-6 leading-tight tracking-custom animate-in stagger-1">
+          <h1 id="hero-heading" className="text-4xl sm:text-5xl md:text-7xl font-medium mb-6 leading-tight tracking-custom animate-in stagger-1">
             Generate Hilarious <span className="text-gradient">Memes</span> with AI in Seconds
           </h1>
 
           <p className="text-lg md:text-xl text-white/70 max-w-2xl mb-10 animate-in stagger-2">
-            Transform your ideas into meme gold with our advanced AI. Just type your prompt and watch as our tool creates the perfect meme for any situation.
+            <strong>Transform your ideas into meme gold</strong> with our advanced AI. Just type your prompt and watch as our tool creates the perfect meme for any situation.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 mb-16 animate-in stagger-3">
@@ -46,9 +46,9 @@ const Hero = () => {
             </Button>
           </div>
 
-          {/* Preview Image */}
+          {/* Preview Image with proper alt text */}
           <div className="relative w-full max-w-5xl animate-in stagger-4">
-            <div className="absolute inset-0 bg-gradient-to-t from-dark-500 to-transparent z-10 pointer-events-none h-20 bottom-0 top-auto"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-dark-500 to-transparent z-10 pointer-events-none h-20 bottom-0 top-auto" aria-hidden="true"></div>
             <div className="glass p-3 md:p-6 rounded-3xl border border-white/10 shadow-xl">
               <div className="relative w-full aspect-[16/9] overflow-hidden rounded-2xl">
                 <div className="absolute inset-0 flex items-center justify-center text-white text-2xl">
@@ -61,7 +61,7 @@ const Hero = () => {
                 </div>
                 <img 
                   src="https://images.unsplash.com/photo-1586953208448-b95a79798f07?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3" 
-                  alt="MemeAI Generator interface showing a meme creation dashboard"
+                  alt="MemeAI Generator interface showing a user-friendly dashboard for creating viral memes with AI technology"
                   className="object-cover w-full h-full rounded-xl"
                   loading="eager"
                 />

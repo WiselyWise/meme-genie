@@ -1,14 +1,15 @@
 
+# MemeAI - AI-powered meme generator
+# https://memeai.netlify.app
+
 # Allow all web crawlers
 User-agent: *
 Allow: /
-
-# Sitemap
-Sitemap: https://memeai.netlify.app/sitemap.xml
-
-# Disallow admin paths
 Disallow: /admin/
 Disallow: /api/
+
+# Sitemap location
+Sitemap: https://memeai.netlify.app/sitemap.xml
 
 # Crawling directives for specific bots
 User-agent: Googlebot
@@ -32,4 +33,14 @@ User-agent: PinterestBot
 Allow: /
 
 User-agent: Yandex
+Allow: /
+
+# Maximum crawl rate instructions for larger bots
+User-agent: AdsBot-Google
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: DuckDuckBot
 Allow: /
