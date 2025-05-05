@@ -2,11 +2,9 @@
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Routes, Route } from "react-router-dom";
 import { Suspense, lazy } from "react";
 import { Loader } from "lucide-react";
-import { HelmetProvider } from "react-helmet-async";
 
 // Lazy load pages for better performance
 const Index = lazy(() => import("./pages/Index"));
@@ -22,32 +20,20 @@ const PageLoader = () => (
   </div>
 );
 
-// Create a singleton QueryClient
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      refetchOnWindowFocus: false,
-      staleTime: 60 * 1000, // 1 minute
-    },
-  },
-});
-
 const App = () => (
-  <HelmetProvider>
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <Suspense fallback={<PageLoader />}>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Suspense>
-      </TooltipProvider>
-    </QueryClientProvider>
-  </HelmetProvider>
+  <>
+    <TooltipProvider>
+      <Toaster />
+      <Sonner />
+      <Suspense fallback={<PageLoader />}>
+        <Routes>
+          <Route path="/" element={<Index />} />
+          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Suspense>
+    </TooltipProvider>
+  </>
 );
 
 export default App;

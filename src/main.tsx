@@ -3,6 +3,8 @@ import { hydrateRoot, createRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import App from './App.tsx'
 import './index.css'
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
+import { HelmetProvider } from "react-helmet-async"
 
 // Check if we're hydrating from server-rendered content
 const rootElement = document.getElementById("root")
@@ -11,10 +13,24 @@ if (!rootElement) {
   throw new Error("Root element not found. Cannot mount React application.")
 }
 
+// Create a client-side QueryClient instance
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+      staleTime: 60 * 1000, // 1 minute
+    },
+  },
+})
+
 const app = (
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>
+  <HelmetProvider>
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </QueryClientProvider>
+  </HelmetProvider>
 )
 
 // More robust check for server-rendered content

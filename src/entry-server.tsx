@@ -8,7 +8,14 @@ import { HelmetProvider } from "react-helmet-async"
 export async function render(url: string) {
   try {
     // Create a new QueryClient instance for each render to prevent data leaking between requests
-    const queryClient = new QueryClient()
+    const queryClient = new QueryClient({
+      defaultOptions: {
+        queries: {
+          refetchOnWindowFocus: false,
+          staleTime: 60 * 1000, // 1 minute
+        },
+      },
+    })
     const helmetContext = {}
 
     const html = ReactDOMServer.renderToString(

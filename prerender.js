@@ -18,14 +18,21 @@ const routesToPrerender = fs
     return name === 'index' ? '/' : `/${name}`
   })
 
+// Execute the prerendering
 ;(async () => {
-  // For each route, render the HTML and save it to a file
-  for (const url of routesToPrerender) {
-    const appHtml = await render(url)
-    const html = template.replace('<!--app-html-->', appHtml)
+  try {
+    // For each route, render the HTML and save it to a file
+    for (const url of routesToPrerender) {
+      const appHtml = await render(url)
+      const html = template.replace('<!--app-html-->', appHtml)
 
-    const filePath = `dist${url === '/' ? '/index' : url}.html`
-    fs.writeFileSync(toAbsolute(filePath), html)
-    console.log('pre-rendered:', filePath)
+      const filePath = `dist${url === '/' ? '/index' : url}.html`
+      fs.writeFileSync(toAbsolute(filePath), html)
+      console.log('pre-rendered:', filePath)
+    }
+    console.log('Prerendering completed successfully.')
+  } catch (error) {
+    console.error('Prerendering error:', error)
+    process.exit(1)
   }
 })()
