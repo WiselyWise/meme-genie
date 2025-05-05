@@ -1,8 +1,7 @@
 
 import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Routes, Route } from "react-router-dom";
-import { Suspense, lazy } from "react";
+import { Suspense, lazy, useEffect, useState } from "react";
 import { Loader } from "lucide-react";
 
 // Lazy load pages for better performance
@@ -19,17 +18,22 @@ const PageLoader = () => (
   </div>
 );
 
-// Create clientOnly wrapper for components that should only render on client
+// Improved ClientOnly component with proper hydration support
 const ClientOnly = ({ children }: { children: React.ReactNode }) => {
-  return typeof window === 'undefined' ? null : <>{children}</>;
+  const [mounted, setMounted] = useState(false);
+  
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+  
+  return mounted ? <>{children}</> : null;
 };
 
 const App = () => (
   <>
-    {/* Wrap Toasters in ClientOnly to prevent them from rendering during SSR */}
+    {/* Only render Toaster on the client to prevent hydration mismatch */}
     <ClientOnly>
       <Toaster />
-      <Sonner />
     </ClientOnly>
     
     <Suspense fallback={<PageLoader />}>
