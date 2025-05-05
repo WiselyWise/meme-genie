@@ -4,6 +4,16 @@ import { Routes, Route } from "react-router-dom";
 import { Suspense, lazy, useEffect, useState } from "react";
 import { Loader } from "lucide-react";
 
+// Create a global isServer variable that works in both environments
+declare global {
+  var isServerRendering: boolean;
+}
+
+// Helper function to detect server rendering
+const isServer = () => {
+  return typeof window === 'undefined' || global.isServerRendering === true;
+};
+
 // Lazy load pages for better performance
 const Index = lazy(() => import("./pages/Index"));
 const NotFound = lazy(() => import("./pages/NotFound"));
@@ -29,21 +39,37 @@ const ClientOnly = ({ children }: { children: React.ReactNode }) => {
   return mounted ? <>{children}</> : null;
 };
 
-const App = () => (
-  <>
-    {/* Only render Toaster on the client to prevent hydration mismatch */}
-    <ClientOnly>
-      <Toaster />
-    </ClientOnly>
-    
-    <Suspense fallback={<PageLoader />}>
-      <Routes>
-        <Route path="/" element={<Index />} />
-        {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </Suspense>
-  </>
+// Static components render the same on server and client
+const StaticContent = ({ children }: { children: React.ReactNode }) => (
+  <>{children}</>
 );
+
+// Main App Component
+const App = () => {
+  // Determine if we're on the server or client
+  const serverRendered = isServer();
+
+  return (
+    <>
+      {/* Only render Toaster on the client to prevent hydration mismatch */}
+      <ClientOnly>
+        <Toaster />
+      </ClientOnly>
+      
+      {/* Create a consistent suspense fallback between server and client */}
+      <Suspense fallback={
+        <StaticContent>
+          <PageLoader />
+        </StaticContent>
+      }>
+        <Routes>
+          <Route path="/" element={<Index />} />
+          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Suspense>
+    </>
+  );
+};
 
 export default App;

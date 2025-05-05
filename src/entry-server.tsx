@@ -19,6 +19,10 @@ export function render(url: string) {
 
   const helmetContext = {};
 
+  // Mark that we're in server rendering mode
+  // This helps components conditionally render content
+  global.isServerRendering = true;
+
   // Important: match the exact structure of providers that's in main.tsx
   const html = ReactDOMServer.renderToString(
     <HelmetProvider context={helmetContext}>
@@ -34,6 +38,9 @@ export function render(url: string) {
 
   // Add console logs for debugging
   console.log('Server-rendered page for URL:', url);
+
+  // Clean up our global flag
+  delete global.isServerRendering;
 
   return html;
 }

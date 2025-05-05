@@ -1,3 +1,4 @@
+
 import { hydrateRoot, createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
@@ -5,6 +6,9 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import App from './App.tsx';
 import './index.css';
+
+// We're definitely not server rendering here
+global.isServerRendering = false;
 
 // Check if we're hydrating from server-rendered content
 const rootElement = document.getElementById("root");
@@ -38,7 +42,12 @@ const app = (
   </HelmetProvider>
 );
 
-if (rootElement.hasChildNodes()) {
+// Use a consistent approach to detect if we need to hydrate
+const hasChildNodes = rootElement.hasChildNodes() && 
+                      rootElement.innerHTML !== '' && 
+                      !rootElement.innerHTML.includes('<!--app-html-->');
+
+if (hasChildNodes) {
   // If the root has children, we're hydrating server-rendered content
   console.log('Hydrating app from server-rendered content');
   hydrateRoot(rootElement, app);
