@@ -6,9 +6,11 @@ import url from 'node:url'
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url))
 const toAbsolute = (p) => path.resolve(__dirname, p)
 
+// Read the template HTML file
 const template = fs.readFileSync(toAbsolute('dist/index.html'), 'utf-8')
 const { render } = await import('./dist/server/entry-server.js')
 
+// Get routes to pre-render from the pages directory
 const routesToPrerender = fs
   .readdirSync(toAbsolute('src/pages'))
   .map((file) => {
@@ -17,8 +19,9 @@ const routesToPrerender = fs
   })
 
 ;(async () => {
+  // For each route, render the HTML and save it to a file
   for (const url of routesToPrerender) {
-    const appHtml = render(url);
+    const appHtml = await render(url)
     const html = template.replace('<!--app-html-->', appHtml)
 
     const filePath = `dist${url === '/' ? '/index' : url}.html`
