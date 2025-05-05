@@ -11,6 +11,12 @@ declare global {
   var isServerRendering: boolean;
 }
 
+// Make sure global is defined in the server environment
+if (typeof global === 'undefined') {
+  // @ts-ignore - Create global object if it doesn't exist
+  global = {};
+}
+
 export function render(url: string) {
   // Create a fresh QueryClient instance for each render
   const queryClient = new QueryClient({

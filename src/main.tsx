@@ -1,4 +1,3 @@
-
 import { hydrateRoot, createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
@@ -8,12 +7,16 @@ import App from './App.tsx';
 import './index.css';
 
 // Define global for browser environment
-if (typeof window !== 'undefined' && typeof window.global === 'undefined') {
+if (typeof window !== 'undefined') {
+  // @ts-ignore - Define global on window for browser compatibility
   window.global = window;
 }
 
 // We're definitely not server rendering here
-window.isServerRendering = false;
+if (typeof window !== 'undefined') {
+  // @ts-ignore - Define isServerRendering on window
+  window.isServerRendering = false;
+}
 
 // Check if we're hydrating from server-rendered content
 const rootElement = document.getElementById("root");
