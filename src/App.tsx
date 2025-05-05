@@ -15,7 +15,8 @@ declare global {
 
 // Helper function to detect server rendering
 const isServer = () => {
-  return typeof window === 'undefined' || window.isServerRendering === true;
+  if (typeof window === 'undefined') return true;
+  return window.isServerRendering === true;
 };
 
 // Lazy load pages for better performance

@@ -9,6 +9,10 @@ import App from './App';
 // Ensure global exists in the server environment
 declare global {
   var isServerRendering: boolean;
+  interface Window {
+    isServerRendering: boolean;
+    global: typeof globalThis;
+  }
 }
 
 // Make sure global is defined in the server environment
