@@ -7,11 +7,15 @@ import { Loader } from "lucide-react";
 // Create a global isServer variable that works in both environments
 declare global {
   var isServerRendering: boolean;
+  interface Window {
+    isServerRendering: boolean;
+    global: typeof globalThis;
+  }
 }
 
 // Helper function to detect server rendering
 const isServer = () => {
-  return typeof window === 'undefined' || global.isServerRendering === true;
+  return typeof window === 'undefined' || window.isServerRendering === true;
 };
 
 // Lazy load pages for better performance

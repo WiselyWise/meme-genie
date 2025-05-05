@@ -7,8 +7,13 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import App from './App.tsx';
 import './index.css';
 
+// Define global for browser environment
+if (typeof window !== 'undefined' && typeof window.global === 'undefined') {
+  window.global = window;
+}
+
 // We're definitely not server rendering here
-global.isServerRendering = false;
+window.isServerRendering = false;
 
 // Check if we're hydrating from server-rendered content
 const rootElement = document.getElementById("root");

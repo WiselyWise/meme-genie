@@ -6,6 +6,11 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import App from './App';
 
+// Ensure global exists in the server environment
+declare global {
+  var isServerRendering: boolean;
+}
+
 export function render(url: string) {
   // Create a fresh QueryClient instance for each render
   const queryClient = new QueryClient({
