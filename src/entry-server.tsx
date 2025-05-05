@@ -16,9 +16,9 @@ declare global {
 }
 
 // Make sure global is defined in the server environment
-if (typeof global === 'undefined') {
-  // @ts-ignore - Create global object if it doesn't exist
-  global = {};
+if (typeof global !== 'undefined') {
+  // Set the server rendering flag
+  global.isServerRendering = true;
 }
 
 export function render(url: string) {
@@ -33,10 +33,6 @@ export function render(url: string) {
   });
 
   const helmetContext = {};
-
-  // Mark that we're in server rendering mode
-  // This helps components conditionally render content
-  global.isServerRendering = true;
 
   // Important: match the exact structure of providers that's in main.tsx
   const html = ReactDOMServer.renderToString(
@@ -55,7 +51,9 @@ export function render(url: string) {
   console.log('Server-rendered page for URL:', url);
 
   // Clean up our global flag
-  delete global.isServerRendering;
+  if (typeof global !== 'undefined') {
+    delete global.isServerRendering;
+  }
 
   return html;
 }

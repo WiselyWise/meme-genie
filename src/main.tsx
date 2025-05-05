@@ -8,13 +8,7 @@ import './index.css';
 
 // Define global for browser environment
 if (typeof window !== 'undefined') {
-  // @ts-ignore - Define global on window for browser compatibility
   window.global = window;
-}
-
-// We're definitely not server rendering here
-if (typeof window !== 'undefined') {
-  // @ts-ignore - Define isServerRendering on window
   window.isServerRendering = false;
 }
 
