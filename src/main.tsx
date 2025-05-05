@@ -24,9 +24,11 @@ const queryClient = new QueryClient({
   },
 });
 
+const helmetContext = {};
+
 // Use the same provider wrappers as in server-side rendering
 const app = (
-  <HelmetProvider>
+  <HelmetProvider context={helmetContext}>
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <BrowserRouter>

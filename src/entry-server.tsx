@@ -17,9 +17,11 @@ export function render(url: string) {
     },
   });
 
+  const helmetContext = {};
+
   // Use the same provider wrappers as in client-side rendering
   const html = ReactDOMServer.renderToString(
-    <HelmetProvider>
+    <HelmetProvider context={helmetContext}>
       <QueryClientProvider client={queryClient}>
         <TooltipProvider>
           <StaticRouter location={url}>

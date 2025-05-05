@@ -30,21 +30,17 @@ const PageLoader = () => (
 // });
 
 const App = () => (
-  <HelmetProvider>
-    {/*<QueryClientProvider client={queryClient}>
-      <TooltipProvider>*/}
-        <Toaster />
-        <Sonner />
-        <Suspense fallback={<PageLoader />}>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Suspense>
-      {/*</TooltipProvider>
-    </QueryClientProvider>*/}
-  </HelmetProvider>
+  <>
+    <Toaster />
+    <Sonner />
+    <Suspense fallback={<PageLoader />}>
+      <Routes>
+        <Route path="/" element={<Index />} />
+        {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Suspense>
+  </>
 );
 
 export default App;
