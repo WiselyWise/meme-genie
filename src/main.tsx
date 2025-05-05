@@ -17,11 +17,17 @@ const app = (
   </BrowserRouter>
 )
 
-// Determine if we should hydrate or create a new root
-if (rootElement.innerHTML.trim() !== '') {
+// More robust check for server-rendered content
+const hasServerRenderedContent = rootElement.firstChild && 
+  rootElement.innerHTML.includes('data-reactroot') || 
+  rootElement.innerHTML.trim() !== ''
+
+if (hasServerRenderedContent) {
   // If the root has content, hydrate the server-rendered content
+  console.log('Hydrating server-rendered content')
   hydrateRoot(rootElement, app)
 } else {
   // If no server-rendered content, create a new root
+  console.log('No server-rendered content found, creating new root')
   createRoot(rootElement).render(app)
 }
