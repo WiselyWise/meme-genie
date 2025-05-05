@@ -3,7 +3,6 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Routes, Route } from "react-router-dom";
 import { Suspense, lazy } from "react";
 import { Loader } from "lucide-react";
-import { HelmetProvider } from "react-helmet-async";
 
 // Lazy load pages for better performance
 const Index = lazy(() => import("./pages/Index"));
@@ -18,16 +17,6 @@ const PageLoader = () => (
     </div>
   </div>
 );
-
-// Create a singleton QueryClient
-// const queryClient = new QueryClient({
-//   defaultOptions: {
-//     queries: {
-//       refetchOnWindowFocus: false,
-//       staleTime: 60 * 1000, // 1 minute
-//     },
-//   },
-// });
 
 const App = () => (
   <>
