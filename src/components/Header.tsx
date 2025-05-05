@@ -29,7 +29,7 @@ const Header = () => {
       }`}
     >
       <div className="container flex items-center justify-between">
-        <a href="/" className="flex items-center space-x-2">
+        <a href="/" className="flex items-center space-x-2" aria-label="MemeAI Home">
           <div className="h-8 w-8 rounded-md bg-gradient-to-br from-purple-500 to-teal-500 flex items-center justify-center text-white font-bold">
             M
           </div>
@@ -37,7 +37,7 @@ const Header = () => {
         </a>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
+        <nav className="hidden md:flex items-center space-x-8" aria-label="Main Navigation">
           <a href="#features" className="text-sm text-white/80 hover:text-white transition">
             Features
           </a>
@@ -65,15 +65,18 @@ const Header = () => {
         <button 
           className="md:hidden text-white"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-expanded={mobileMenuOpen}
+          aria-controls="mobile-menu"
+          aria-label="Toggle mobile menu"
         >
-          {mobileMenuOpen ? <X /> : <Menu />}
+          {mobileMenuOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
         </button>
       </div>
 
       {/* Mobile Navigation */}
       {mobileMenuOpen && (
-        <div className="md:hidden glass mt-3 py-6 px-4 animate-in">
-          <nav className="flex flex-col space-y-4 mb-6">
+        <div id="mobile-menu" className="md:hidden glass mt-3 py-6 px-4 animate-in">
+          <nav className="flex flex-col space-y-4 mb-6" aria-label="Mobile Navigation">
             <a 
               href="#features" 
               className="text-white/80 hover:text-white transition"

@@ -7,7 +7,7 @@
         xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
   <url>
     <loc>https://memeai.netlify.app/</loc>
-    <lastmod>2025-05-04</lastmod>
+    <lastmod>2025-05-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -18,43 +18,43 @@
   </url>
   <url>
     <loc>https://memeai.netlify.app/features</loc>
-    <lastmod>2025-05-04</lastmod>
+    <lastmod>2025-05-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://memeai.netlify.app/pricing</loc>
-    <lastmod>2025-05-04</lastmod>
+    <lastmod>2025-05-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://memeai.netlify.app/faq</loc>
-    <lastmod>2025-05-04</lastmod>
+    <lastmod>2025-05-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://memeai.netlify.app/contact</loc>
-    <lastmod>2025-05-04</lastmod>
+    <lastmod>2025-05-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://memeai.netlify.app/terms</loc>
-    <lastmod>2025-05-04</lastmod>
+    <lastmod>2025-05-05</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://memeai.netlify.app/privacy</loc>
-    <lastmod>2025-05-04</lastmod>
+    <lastmod>2025-05-05</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://memeai.netlify.app/blog</loc>
-    <lastmod>2025-05-04</lastmod>
+    <lastmod>2025-05-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>

@@ -44,23 +44,33 @@ const Index = () => {
   return (
     <>
       <Helmet>
+        <html lang="en" />
         <title>MemeAI - Generate Hilarious Memes with AI in Seconds</title>
         <meta name="description" content="Transform your ideas into meme gold with our advanced AI meme generator. Create viral-worthy content in seconds with powerful customization tools." />
         <meta name="keywords" content="ai meme generator, meme creator, funny memes, meme maker, viral content, ai-generated memes, custom memes, meme templates, humor ai" />
-        <meta property="og:title" content="MemeAI - Generate Hilarious Memes with AI" />
-        <meta property="og:description" content="Transform your ideas into meme gold with our advanced AI meme generator. Create viral-worthy content in seconds." />
+        
+        {/* Primary Meta Tags */}
+        <meta name="title" content="MemeAI - Generate Hilarious Memes with AI in Seconds" />
+        <meta name="author" content="MemeAI Team" />
+        
+        {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://memeai.netlify.app/" />
+        <meta property="og:title" content="MemeAI - Generate Hilarious Memes with AI" />
+        <meta property="og:description" content="Transform your ideas into meme gold with our advanced AI meme generator. Create viral-worthy content in seconds." />
         <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+        
+        {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="MemeAI - Generate Hilarious Memes with AI" />
         <meta name="twitter:description" content="Create viral-worthy memes in seconds with our AI-powered meme generator." />
         <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+        
+        {/* Canonical link */}
         <link rel="canonical" href="https://memeai.netlify.app/" />
         
         {/* Additional SEO meta tags */}
         <meta name="robots" content="index, follow, max-image-preview:large" />
-        <meta name="author" content="MemeAI Team" />
         <meta name="application-name" content="MemeAI" />
         <meta name="theme-color" content="#6b21a8" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
