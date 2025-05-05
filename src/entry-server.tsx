@@ -19,7 +19,7 @@ export function render(url: string) {
 
   const helmetContext = {};
 
-  // Use the same provider wrappers as in client-side rendering
+  // Important: match the exact structure of providers that's in main.tsx
   const html = ReactDOMServer.renderToString(
     <HelmetProvider context={helmetContext}>
       <QueryClientProvider client={queryClient}>
@@ -31,6 +31,9 @@ export function render(url: string) {
       </QueryClientProvider>
     </HelmetProvider>
   );
+
+  // Add console logs for debugging
+  console.log('Server-rendered page for URL:', url);
 
   return html;
 }

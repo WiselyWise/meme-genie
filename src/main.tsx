@@ -1,4 +1,3 @@
-
 import { hydrateRoot, createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
@@ -26,7 +25,7 @@ const queryClient = new QueryClient({
 
 const helmetContext = {};
 
-// Use the same provider wrappers as in server-side rendering
+// Important: match the exact structure of providers that's in entry-server.tsx
 const app = (
   <HelmetProvider context={helmetContext}>
     <QueryClientProvider client={queryClient}>
@@ -41,8 +40,10 @@ const app = (
 
 if (rootElement.hasChildNodes()) {
   // If the root has children, we're hydrating server-rendered content
+  console.log('Hydrating app from server-rendered content');
   hydrateRoot(rootElement, app);
 } else {
   // Otherwise, we're rendering client-side only
+  console.log('Rendering app client-side only');
   createRoot(rootElement).render(app);
 }
