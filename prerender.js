@@ -18,7 +18,7 @@ const routesToPrerender = fs
 
 ;(async () => {
   for (const url of routesToPrerender) {
-    const appHtml = render(url);
+    const appHtml = await render(url);
     const html = template.replace('<!--app-html-->', appHtml)
 
     const filePath = `dist${url === '/' ? '/index' : url}.html`
