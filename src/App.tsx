@@ -19,10 +19,19 @@ const PageLoader = () => (
   </div>
 );
 
+// Create clientOnly wrapper for components that should only render on client
+const ClientOnly = ({ children }: { children: React.ReactNode }) => {
+  return typeof window === 'undefined' ? null : <>{children}</>;
+};
+
 const App = () => (
   <>
-    <Toaster />
-    <Sonner />
+    {/* Wrap Toasters in ClientOnly to prevent them from rendering during SSR */}
+    <ClientOnly>
+      <Toaster />
+      <Sonner />
+    </ClientOnly>
+    
     <Suspense fallback={<PageLoader />}>
       <Routes>
         <Route path="/" element={<Index />} />
